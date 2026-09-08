@@ -1,0 +1,47 @@
+{
+  "_comment": "All risk-scoring weights and thresholds. Edit freely; values are hot-reloaded at process start. Positive = increases risk, negative = decreases risk.",
+
+  "security_base_score": {
+    "OPEN": 40,
+    "WEP": 50,
+    "WPA": 25,
+    "WPA2": 10,
+    "WPA3": 3,
+    "UNKNOWN": 20
+  },
+
+  "enterprise_auth_bonus": -3,
+
+  "unusually_strong_signal_threshold_percent": 90,
+  "unusually_strong_signal_bonus": 5,
+
+  "suspicious_ssid_keywords": ["free", "public", "guest", "airport", "open"],
+  "suspicious_ssid_keyword_bonus": 6,
+
+  "duplicate_ssid_different_bssid": 15,
+  "duplicate_ssid_weaker_security": 25,
+  "duplicate_ssid_different_encryption": 8,
+  "duplicate_ssid_different_band": 5,
+
+  "fingerprint_security_downgrade": 30,
+  "fingerprint_bssid_changed": 15,
+  "fingerprint_channel_changed": 5,
+  "fingerprint_encryption_changed": 10,
+  "fingerprint_stable_bonus": -10,
+  "known_network_bonus": -5,
+
+  "unknown_bssid_bonus": 10,
+
+  "anomaly_threshold": 20,
+
+  "risk_levels": {
+    "VERY_LOW": [0, 20],
+    "LOW": [21, 40],
+    "MEDIUM": [41, 60],
+    "HIGH": [61, 80],
+    "CRITICAL": [81, 100]
+  },
+
+  "min_score": 0,
+  "max_score": 100
+}

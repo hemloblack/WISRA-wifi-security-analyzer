@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WISRA — Wi-Fi Security Risk Analyzer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="header-inner">
+      <h1>📡 WISRA <span>Wi-Fi Security Risk Analyzer — Windows</span></h1>
+      <button id="scanBtn">Scan Networks</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="currentConnection" class="current-connection hidden">
+      <h3>Current Connection</h3>
+      <div id="currentConnectionBody"></div>
+    </section>
+
+    <section id="summary" class="summary hidden">
+      <div class="stat"><span id="statTotal">0</span><label>Access Points</label></div>
+      <div class="stat risk-VERY_LOW"><span id="statVeryLow">0</span><label>Very Low</label></div>
+      <div class="stat risk-LOW"><span id="statLow">0</span><label>Low</label></div>
+      <div class="stat risk-MEDIUM"><span id="statMedium">0</span><label>Medium</label></div>
+      <div class="stat risk-HIGH"><span id="statHigh">0</span><label>High</label></div>
+      <div class="stat risk-CRITICAL"><span id="statCritical">0</span><label>Critical</label></div>
+    </section>
+
+    <section id="tableSection" class="hidden">
+      <table id="networkTable">
+        <thead>
+          <tr>
+            <th>Network</th>
+            <th>Authentication</th>
+            <th>Signal</th>
+            <th>Band</th>
+            <th>Risk Score</th>
+            <th>Level</th>
+          </tr>
+        </thead>
+        <tbody id="networkTableBody"></tbody>
+      </table>
+    </section>
+
+    <section id="empty" class="empty">
+      <p>Click <strong>Scan Networks</strong> to discover nearby Wi-Fi access points via your real Wi-Fi adapter and analyze their risk.</p>
+    </section>
+
+    <section id="errorBox" class="error-box hidden"></section>
+
+    <section id="detailPanel" class="detail-panel hidden">
+      <button id="closeDetail">✕</button>
+      <h2 id="detailSsid"></h2>
+      <p id="detailBssid" class="mono"></p>
+      <div id="detailScore" class="detail-score"></div>
+      <h3>Why this score?</h3>
+      <ul id="detailReasons"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>WISRA performs passive discovery only — no attacks, no packet capture, no credential access, no automatic connection.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

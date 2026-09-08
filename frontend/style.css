@@ -1,0 +1,87 @@
+:root {
+  --bg: #0f1420;
+  --panel: #171f2e;
+  --panel-border: #263049;
+  --text: #e6ecf5;
+  --text-dim: #8b98b0;
+  --accent: #4f8cff;
+  --very-low: #38c172;
+  --low: #7ed957;
+  --medium: #f6c343;
+  --high: #ef5b5b;
+  --critical: #c34fd6;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+header { background: var(--panel); border-bottom: 1px solid var(--panel-border); padding: 18px 28px; }
+.header-inner { max-width: 1000px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
+h1 { font-size: 20px; margin: 0; }
+h1 span { display: block; font-size: 12px; font-weight: 400; color: var(--text-dim); margin-top: 2px; }
+
+button {
+  background: var(--accent); color: white; border: none; padding: 10px 18px;
+  border-radius: 8px; font-size: 14px; cursor: pointer; font-weight: 600;
+}
+button:hover { opacity: 0.9; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+main { max-width: 1000px; margin: 24px auto; padding: 0 28px; }
+.hidden { display: none !important; }
+
+.current-connection {
+  background: var(--panel); border: 1px solid var(--panel-border); border-radius: 10px;
+  padding: 16px 18px; margin-bottom: 20px;
+}
+.current-connection h3 { margin: 0 0 10px; font-size: 13px; color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.04em; }
+.current-connection .cc-row { display: flex; gap: 24px; flex-wrap: wrap; font-size: 14px; }
+.current-connection .cc-row div span.label { color: var(--text-dim); margin-right: 6px; }
+
+.summary { display: flex; gap: 12px; margin-bottom: 20px; flex-wrap: wrap; }
+.stat { flex: 1; min-width: 90px; background: var(--panel); border: 1px solid var(--panel-border); border-radius: 10px; padding: 14px; text-align: center; }
+.stat span { display: block; font-size: 24px; font-weight: 700; }
+.stat label { font-size: 11px; color: var(--text-dim); }
+.risk-VERY_LOW span { color: var(--very-low); }
+.risk-LOW span { color: var(--low); }
+.risk-MEDIUM span { color: var(--medium); }
+.risk-HIGH span { color: var(--high); }
+.risk-CRITICAL span { color: var(--critical); }
+
+table { width: 100%; border-collapse: collapse; background: var(--panel); border: 1px solid var(--panel-border); border-radius: 10px; overflow: hidden; }
+thead { background: rgba(255,255,255,0.03); }
+th, td { text-align: left; padding: 12px 14px; font-size: 14px; border-bottom: 1px solid var(--panel-border); }
+tbody tr { cursor: pointer; }
+tbody tr:hover { background: rgba(255,255,255,0.03); }
+tbody tr:last-child td { border-bottom: none; }
+
+.badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+.badge-VERY_LOW { background: rgba(56,193,114,0.15); color: var(--very-low); }
+.badge-LOW { background: rgba(126,217,87,0.15); color: var(--low); }
+.badge-MEDIUM { background: rgba(246,195,67,0.15); color: var(--medium); }
+.badge-HIGH { background: rgba(239,91,91,0.15); color: var(--high); }
+.badge-CRITICAL { background: rgba(195,79,214,0.15); color: var(--critical); }
+
+.empty { text-align: center; color: var(--text-dim); padding: 60px 20px; }
+
+.error-box {
+  background: rgba(239,91,91,0.1); border: 1px solid var(--high); color: var(--high);
+  border-radius: 10px; padding: 14px 18px; margin-top: 16px; font-size: 14px;
+}
+
+.detail-panel {
+  position: fixed; right: 0; top: 0; bottom: 0; width: 380px; background: var(--panel);
+  border-left: 1px solid var(--panel-border); padding: 24px; overflow-y: auto;
+}
+.detail-panel button#closeDetail { position: absolute; right: 16px; top: 16px; background: transparent; color: var(--text-dim); padding: 4px 8px; }
+.mono { font-family: "SF Mono", Consolas, monospace; color: var(--text-dim); font-size: 13px; }
+.detail-score { font-size: 32px; font-weight: 800; margin: 16px 0; }
+#detailReasons { padding-left: 18px; font-size: 14px; line-height: 1.6; color: var(--text-dim); }
+
+footer { text-align: center; color: var(--text-dim); font-size: 12px; padding: 30px 20px 40px; }
